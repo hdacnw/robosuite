@@ -45,23 +45,6 @@ class LemonObject(MujocoXMLObject):
         )
 
 
-class WoodenCabinetObject(MujocoXMLObject):
-    """
-    Three-drawer wooden cabinet (articulated).
-    Internal slide joints: {name}_top_level, {name}_middle_level, {name}_bottom_level.
-    A free joint is added to the root body for whole-cabinet placement.
-    """
-
-    def __init__(self, name):
-        super().__init__(
-            xml_path_completion("objects/articulated_objects/wooden_cabinet.xml"),
-            name=name,
-            joints=[dict(type="free", damping="0")],
-            obj_type="all",
-            duplicate_collision_geoms=False,
-        )
-
-
 class MilkObject(MujocoXMLObject):
     """
     Milk carton object (used in PickPlace)
