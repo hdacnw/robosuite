@@ -1,0 +1,56 @@
+<mujoco model="round_door_cabinet">
+    <compiler angle="radian" meshdir="./" />
+    <size njmax="500" nconmax="100" />
+    <asset>
+        <mesh name="body_vis"   file="round_door_cabinet/body.obj"   scale="0.5 0.5 0.5" />
+        <mesh name="door_vis"   file="round_door_cabinet/door.obj"   scale="0.5 0.5 0.5" />
+        <mesh name="handle_vis" file="round_door_cabinet/handle.obj" scale="0.5 0.5 0.5" />
+    </asset>
+    <worldbody>
+        <body>
+          <body name="object">
+            
+            <body name="base" pos="0.00000 0.00000 0.00000" quat="0.70711 0.70711 0 0">
+
+              
+              <geom type="mesh" mesh="body_vis" conaffinity="0" contype="0" group="1" rgba="0.10 0.20 0.60 1" />
+
+              
+              
+              <geom type="box" pos="0.00000 0.19900 -0.12300" size="0.12000 0.19900 0.00150" rgba="0.1 0.2 0.6 0.3" group="0" solimp="0.998 0.998 0.001" solref="0.001 1" density="10000" friction="0.95 0.3 0.1" />
+              
+              <geom type="box" pos="-0.11850 0.19900 -0.00450" size="0.00150 0.19900 0.12000" rgba="0.1 0.2 0.6 0.3" group="0" solimp="0.998 0.998 0.001" solref="0.001 1" density="10000" friction="0.95 0.3 0.1" />
+              
+              <geom type="box" pos="0.11850 0.19900 -0.00450" size="0.00150 0.19900 0.12000" rgba="0.1 0.2 0.6 0.3" group="0" solimp="0.998 0.998 0.001" solref="0.001 1" density="10000" friction="0.95 0.3 0.1" />
+              
+              <geom type="box" pos="0.00000 0.39600 -0.00450" size="0.12000 0.00150 0.12000" rgba="0.1 0.2 0.6 0.3" group="0" solimp="0.998 0.998 0.001" solref="0.001 1" density="10000" friction="0.95 0.3 0.1" />
+              
+              <geom type="box" pos="0.00000 0.00150 -0.00450" size="0.12000 0.00150 0.12000" rgba="0.1 0.2 0.6 0.3" group="0" solimp="0.998 0.998 0.001" solref="0.001 1" density="10000" friction="0.95 0.3 0.1" />
+
+              
+              <body name="cabinet_door" pos="0.00000 0.00000 0.00000">
+                <inertial pos="0.00000 0.00000 0.00000" mass="2" diaginertia="0.1 0.1 0.1" />
+                
+                <joint name="cabinet_door_joint_0" type="hinge" pos="0.11095 0.21035 0.10125" axis="0 1 0" limited="true" range="0.0 2.5" damping="1" frictionloss="2" />
+
+                
+                <!-- door: offset 0.003 forward in local z to clear body frame (0.4mm gap → 3.4mm) -->
+                <geom type="mesh" mesh="door_vis"   pos="0 0 0.003" conaffinity="0" contype="0" group="1" rgba="0.10 0.20 0.60 1" />
+                <!-- handle mesh at its OBJ position (left side, front face) -->
+                <geom type="mesh" mesh="handle_vis" conaffinity="0" contype="0" group="1" rgba="1 1 1 1" />
+
+                <!-- door collision box (scaled OBJ center + same z offset) -->
+                <geom type="box" pos="0.00000 0.21035 0.11445" size="0.11095 0.17500 0.01315" rgba="0.1 0.2 0.6 0.3" group="0" solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" />
+                <!-- handle collision sphere at actual handle center -->
+                <geom type="sphere" pos="-0.09700 0.22300 0.11930" size="0.01200" rgba="1 1 1 0.3" group="0" solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" />
+              </body>
+
+            </body>
+          </body>
+          
+          <site rgba="0 0 0 0" size="0.05" pos="0.00000 0.00000 0.00000" name="bottom_site" />
+          <site rgba="0 0 0 0" size="0.05" pos="0.00000 0.00000 0.39750" name="top_site" />
+          <site rgba="0 0 0 0" size="0.05" pos="0.12000 0.12450 0.00000" name="horizontal_radius_site" />
+        </body>
+    </worldbody>
+</mujoco>

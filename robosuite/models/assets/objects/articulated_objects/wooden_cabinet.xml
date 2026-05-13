@@ -1,0 +1,68 @@
+<mujoco model="wooden_cabinet">
+    <compiler angle="radian" meshdir="./" />
+    <size njmax="500" nconmax="100" />
+    <asset>
+      <texture file="wooden_cabinet/dark_fine_wood.png" name="tex-wooden_cabinet" type="2d" />
+      <material name="wooden_cabinet_top" reflectance="0.5" texrepeat="1 1" texture="tex-wooden_cabinet" texuniform="false" />
+      <mesh file="wooden_cabinet/wooden_cabinet_top/visual/wooden_cabinet_top_vis.msh" name="wooden_cabinet_top_vis" scale="0.05 0.05 0.05" />
+      <texture file="wooden_cabinet/dark_fine_wood.png" name="tex-wooden_cabinet_base" type="2d" />
+      <material name="wooden_cabinet_base" reflectance="0.5" texrepeat="1 1" texture="tex-wooden_cabinet_base" texuniform="false" />
+      <mesh file="wooden_cabinet/wooden_cabinet_base/visual/wooden_cabinet_base_vis.msh" name="wooden_cabinet_base_vis" scale="0.05 0.05 0.05" />
+      <texture file="wooden_cabinet/metal.png" name="tex-wooden_cabinet_handle" type="2d" />
+      <material name="wooden_cabinet_top_handle" reflectance="0.5" texrepeat="1 1" texture="tex-wooden_cabinet_handle" texuniform="false" />
+      <mesh file="wooden_cabinet/wooden_cabinet_top_handle/visual/wooden_cabinet_top_handle_vis.msh" name="wooden_cabinet_top_handle_vis" scale="0.05 0.05 0.05" />
+      <material name="wooden_cabinet_middle" reflectance="0.5" texrepeat="1 1" texture="tex-wooden_cabinet" texuniform="false" />
+      <mesh file="wooden_cabinet/wooden_cabinet_middle/visual/wooden_cabinet_middle_vis.msh" name="wooden_cabinet_middle_vis" scale="0.05 0.05 0.05" />
+      <material name="wooden_cabinet_middle_handle" reflectance="0.5" texrepeat="1 1" texture="tex-wooden_cabinet_handle" texuniform="false" />
+      <mesh file="wooden_cabinet/wooden_cabinet_middle_handle/visual/wooden_cabinet_middle_handle_vis.msh" name="wooden_cabinet_middle_handle_vis" scale="0.05 0.05 0.05" />
+      <material name="wooden_cabinet_bottom" reflectance="0.5" texrepeat="1 1" texture="tex-wooden_cabinet" texuniform="false" />
+      <mesh file="wooden_cabinet/wooden_cabinet_bottom/visual/wooden_cabinet_bottom_vis.msh" name="wooden_cabinet_bottom_vis" scale="0.05 0.05 0.05" />
+      <material name="wooden_cabinet_bottom_handle" reflectance="0.5" texrepeat="1 1" texture="tex-wooden_cabinet_handle" texuniform="false" />
+      <mesh file="wooden_cabinet/wooden_cabinet_bottom_handle/visual/wooden_cabinet_bottom_handle_vis.msh" name="wooden_cabinet_bottom_handle_vis" scale="0.05 0.05 0.05" />
+    </asset>
+    <worldbody>
+        <body>
+          <body name="object">
+            <body name="base" pos="0.00000 0.00000 0.00000">
+              <site type="box" pos="0.00353 0.01566 0.33230" quat="1 0 0 0" size="0.12534 0.09439 0.00219" group="0" rgba="0.8 0.8 0 0" name="top_side" />
+              <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_base_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_base" />
+              <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_base_vis" group="0" />
+
+              <body name="cabinet_top" pos="0.00000 0.00000 0.00000">
+                <inertial pos="0.00000 0.00000 0.00000" mass="3" diaginertia="1 1 1" />
+                <joint name="top_level" type="slide" pos="0.00000 0.00000 0.00000" axis="0 1 0" limited="true" range="-0.16 0.01" damping="50" frictionloss="1" />
+                <site type="box" pos="0.00330 0.01130 0.27844" quat="0.70711 0.00000 0.70711 0.00000" size="0.04491 0.07561 0.10227" group="0" rgba="0.8 0.8 0.8 0" name="top_region" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_top_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_top" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_top_vis" group="0" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_top_handle_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_top_handle" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_top_handle_vis" group="0" />
+              </body>
+
+              <body name="cabinet_middle" pos="0.00000 0.00000 0.00000">
+                <inertial pos="0.00000 0.00000 0.00000" mass="3" diaginertia="1 1 1" />
+                <joint name="middle_level" type="slide" pos="0.00000 0.00000 0.00000" axis="0 1 0" limited="true" range="-0.16 0.01" damping="50" />
+                <site name="middle_region" type="box" pos="0.00330 0.01130 0.17535" quat="0.70711 0.00000 0.70711 0.00000" size="0.04491 0.07561 0.10227" group="0" rgba="0.8 0.8 0.8 0" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_middle_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_middle" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_middle_vis" group="0" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_middle_handle_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_middle_handle" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_middle_handle_vis" group="0" />
+              </body>
+
+              <body name="cabinet_bottom" pos="0.00000 0.00000 0.00000">
+                <inertial pos="0.00000 0.00000 0.00000" mass="3" diaginertia="1 1 1" />
+                <joint name="bottom_level" type="slide" pos="0.00000 0.00000 0.00000" axis="0 1 0" limited="true" range="-0.16 0.01" damping="50" />
+                <site name="bottom_region" type="box" pos="0.00330 0.01130 0.07051" quat="0.70711 0.00000 0.70711 0.00000" size="0.04491 0.07561 0.10227" group="0" rgba="0.8 0.8 0.8 0" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_bottom_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_bottom" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_bottom_vis" group="0" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_bottom_handle_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_bottom_handle" />
+                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_bottom_handle_vis" group="0" />
+              </body>
+
+            </body>
+          </body>
+          <site rgba="0 0 0 0" size="0.05" pos="0.00000 0.00000 -0.06750" name="bottom_site" />
+          <site rgba="0 0 0 0" size="0.05" pos="0.00000 0.00000 0.06750" name="top_site" />
+          <site rgba="0 0 0 0" size="0.05" pos="0.04500 0.04500 0.00000" name="horizontal_radius_site" />
+        </body>
+    </worldbody>
+</mujoco>

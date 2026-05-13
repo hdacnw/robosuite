@@ -1,0 +1,82 @@
+<mujoco model="round_cabinet">
+    <compiler angle="radian" meshdir="./" />
+    <size njmax="500" nconmax="100" />
+    <asset>
+        <texture file="round_cabinet/wood.png" name="tex-wood" type="2d"/>
+        <material name="wood_mat" reflectance="0.3" texrepeat="1 1" texture="tex-wood" texuniform="false"/>
+
+        <mesh name="body_vis"          file="round_cabinet/body.obj"/>
+        <mesh name="drawer_top_vis"    file="round_cabinet/drawer_top.obj"/>
+        <mesh name="drawer_bottom_vis" file="round_cabinet/drawer_bottom.obj"/>
+        <mesh name="handle_top_vis"    file="round_cabinet/handle_top.obj"/>
+        <mesh name="handle_bottom_vis" file="round_cabinet/handle_bottom.obj"/>
+    </asset>
+    <worldbody>
+        <body>
+          <body name="object">
+            <body name="base" pos="0 0 0">
+
+              <!-- Visual -->
+              <geom type="mesh" mesh="body_vis" conaffinity="0" contype="0" group="1" material="wood_mat"/>
+
+              <!-- Body collision: back (+x), two sides (±y), top, bottom -->
+              <geom type="box" pos=" 0.097  0.000 0.100" size="0.003 0.110 0.101"
+                    rgba="0.8 0.8 0.8 0.3" group="0"
+                    solimp="0.998 0.998 0.001" solref="0.001 1" density="10000" friction="0.95 0.3 0.1"/>
+              <geom type="box" pos="-0.005 -0.107 0.100" size="0.105 0.003 0.101"
+                    rgba="0.8 0.8 0.8 0.3" group="0"
+                    solimp="0.998 0.998 0.001" solref="0.001 1" density="10000" friction="0.95 0.3 0.1"/>
+              <geom type="box" pos="-0.005  0.107 0.100" size="0.105 0.003 0.101"
+                    rgba="0.8 0.8 0.8 0.3" group="0"
+                    solimp="0.998 0.998 0.001" solref="0.001 1" density="10000" friction="0.95 0.3 0.1"/>
+              <geom type="box" pos="-0.005  0.000 0.198" size="0.105 0.110 0.003"
+                    rgba="0.8 0.8 0.8 0.3" group="0"
+                    solimp="0.998 0.998 0.001" solref="0.001 1" density="10000" friction="0.95 0.3 0.1"/>
+              <geom type="box" pos="-0.005  0.000 0.002" size="0.105 0.110 0.003"
+                    rgba="0.8 0.8 0.8 0.3" group="0"
+                    solimp="0.998 0.998 0.001" solref="0.001 1" density="10000" friction="0.95 0.3 0.1"/>
+
+              <!-- Top drawer: slides in -X direction when opening -->
+              <body name="drawer_top" pos="0 0 0">
+                <inertial pos="0 0 0" mass="1" diaginertia="0.1 0.1 0.1"/>
+                <joint name="drawer_top_joint_0" type="slide"
+                       axis="-1 0 0" range="0.0 0.049"
+                       limited="true" damping="5" frictionloss="2"/>
+                <geom type="mesh" mesh="drawer_top_vis"  conaffinity="0" contype="0" group="1" material="wood_mat"/>
+                <geom type="mesh" mesh="handle_top_vis"  conaffinity="0" contype="0" group="1" rgba="0.55 0.55 0.55 1"/>
+                <!-- drawer box -->
+                <geom type="box" pos="-0.0173 0.0001 0.1500" size="0.0874 0.0821 0.0309"
+                      rgba="0.8 0.8 0.8 0.3" group="0"
+                      solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1"/>
+                <!-- sphere handle -->
+                <geom type="sphere" pos="-0.1158 0.0001 0.1497" size="0.0122"
+                      rgba="0.8 0.8 0.8 0.3" group="0"
+                      solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1"/>
+              </body>
+
+              <!-- Bottom drawer -->
+              <body name="drawer_bottom" pos="0 0 0">
+                <inertial pos="0 0 0" mass="1" diaginertia="0.1 0.1 0.1"/>
+                <joint name="drawer_bottom_joint_0" type="slide"
+                       axis="-1 0 0" range="0.0 0.049"
+                       limited="true" damping="5" frictionloss="2"/>
+                <geom type="mesh" mesh="drawer_bottom_vis" conaffinity="0" contype="0" group="1" material="wood_mat"/>
+                <geom type="mesh" mesh="handle_bottom_vis" conaffinity="0" contype="0" group="1" rgba="0.55 0.55 0.55 1"/>
+                <!-- drawer box -->
+                <geom type="box" pos="-0.0173 0.0001 0.0600" size="0.0874 0.0821 0.0309"
+                      rgba="0.8 0.8 0.8 0.3" group="0"
+                      solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1"/>
+                <!-- sphere handle -->
+                <geom type="sphere" pos="-0.1158 0.0001 0.0591" size="0.0122"
+                      rgba="0.8 0.8 0.8 0.3" group="0"
+                      solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1"/>
+              </body>
+
+            </body>
+          </body>
+          <site rgba="0 0 0 0" size="0.05" pos="0 0 0"     name="bottom_site"/>
+          <site rgba="0 0 0 0" size="0.05" pos="0 0 0.201" name="top_site"/>
+          <site rgba="0 0 0 0" size="0.05" pos="0.110 0.110 0" name="horizontal_radius_site"/>
+        </body>
+    </worldbody>
+</mujoco>

@@ -1,0 +1,17 @@
+<mujoco model="plate">
+  <asset>
+    <material name="plate_mat" rgba="0.92 0.90 0.88 1.0" specular="0.4" shininess="0.3"/>
+  </asset>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom pos="0 0 0" type="cylinder" size="0.09 0.006" solimp="0.998 0.998 0.001"
+              solref="0.001 1" density="2000" friction="0.8 0.3 0.1" material="plate_mat"
+              group="0" condim="4"/>
+      </body>
+      <site rgba="0 0 0 0" size="0.005" pos="0 0 -0.006" name="bottom_site"/>
+      <site rgba="0 0 0 0" size="0.005" pos="0 0 0.006" name="top_site"/>
+      <site rgba="0 0 0 0" size="0.005" pos="0.09 0 0" name="horizontal_radius_site"/>
+    </body>
+  </worldbody>
+</mujoco>
