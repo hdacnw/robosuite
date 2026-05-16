@@ -14,35 +14,35 @@
         <!-- Collision: floor disk (covers inner base, r≈0.027 m) -->
         <geom type="cylinder" size="0.027 0.003" pos="0 0 0.003"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
-              friction="0.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
+              friction="3.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
 
         <!-- Collision: 8 wall segments centred at r=0.045, z=0.022, tilted outward 30°.
              euler="0 tilt θ" in MuJoCo extrinsic-XYZ convention: first Ry(tilt),
              then Rz(θ) — keeps outward tilt pointing radially at each angle. -->
         <geom type="box" size="0.006 0.013 0.022" pos=" 0.0450  0.0000 0.022" euler="0 45   0"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
-              friction="0.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
+              friction="3.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
         <geom type="box" size="0.006 0.013 0.022" pos=" 0.0318  0.0318 0.022" euler="0 45  45"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
-              friction="0.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
+              friction="3.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
         <geom type="box" size="0.006 0.013 0.022" pos=" 0.0000  0.0450 0.022" euler="0 45  90"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
-              friction="0.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
+              friction="3.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
         <geom type="box" size="0.006 0.013 0.022" pos="-0.0318  0.0318 0.022" euler="0 45 135"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
-              friction="0.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
+              friction="3.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
         <geom type="box" size="0.006 0.013 0.022" pos="-0.0450  0.0000 0.022" euler="0 45 180"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
-              friction="0.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
+              friction="3.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
         <geom type="box" size="0.006 0.013 0.022" pos="-0.0318 -0.0318 0.022" euler="0 45 225"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
-              friction="0.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
+              friction="3.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
         <geom type="box" size="0.006 0.013 0.022" pos=" 0.0000 -0.0450 0.022" euler="0 45 270"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
-              friction="0.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
+              friction="3.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
         <geom type="box" size="0.006 0.013 0.022" pos=" 0.0318 -0.0318 0.022" euler="0 45 315"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
-              friction="0.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
+              friction="3.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
 
       </body>
       <site rgba="0 0 0 0" size="0.005" pos="0 0 0"     name="bottom_site"/>

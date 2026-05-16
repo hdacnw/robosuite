@@ -34,8 +34,8 @@
                 <site type="box" pos="0.00330 0.01130 0.27844" quat="0.70711 0.00000 0.70711 0.00000" size="0.04491 0.07561 0.10227" group="0" rgba="0.8 0.8 0.8 0" name="top_region" />
                 <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_top_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_top" />
                 <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_top_vis" group="0" />
-                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_top_handle_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_top_handle" />
-                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_top_handle_vis" group="0" />
+                <geom type="box" pos="0.003 -0.096 0.184" size="0.015 0.020 0.012" rgba="0.78 0.78 0.80 1" conaffinity="0" contype="0" group="1" />
+                <geom type="box" pos="0.003 -0.096 0.184" size="0.015 0.020 0.012" solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" group="0" />
               </body>
 
               <body name="cabinet_middle" pos="0.00000 0.00000 0.00000">
@@ -44,8 +44,8 @@
                 <site name="middle_region" type="box" pos="0.00330 0.01130 0.17535" quat="0.70711 0.00000 0.70711 0.00000" size="0.04491 0.07561 0.10227" group="0" rgba="0.8 0.8 0.8 0" />
                 <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_middle_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_middle" />
                 <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_middle_vis" group="0" />
-                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_middle_handle_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_middle_handle" />
-                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_middle_handle_vis" group="0" />
+                <geom type="box" pos="0.003 -0.096 0.110" size="0.015 0.020 0.012" rgba="0.78 0.78 0.80 1" conaffinity="0" contype="0" group="1" />
+                <geom type="box" pos="0.003 -0.096 0.110" size="0.015 0.020 0.012" solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" group="0" />
               </body>
 
               <body name="cabinet_bottom" pos="0.00000 0.00000 0.00000">
@@ -54,8 +54,8 @@
                 <site name="bottom_region" type="box" pos="0.00330 0.01130 0.07051" quat="0.70711 0.00000 0.70711 0.00000" size="0.04491 0.07561 0.10227" group="0" rgba="0.8 0.8 0.8 0" />
                 <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_bottom_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_bottom" />
                 <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_bottom_vis" group="0" />
-                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_bottom_handle_vis" conaffinity="0" contype="0" group="1" material="wooden_cabinet_bottom_handle" />
-                <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wooden_cabinet_bottom_handle_vis" group="0" />
+                <geom type="box" pos="0.003 -0.096 0.042" size="0.015 0.020 0.012" rgba="0.78 0.78 0.80 1" conaffinity="0" contype="0" group="1" />
+                <geom type="box" pos="0.003 -0.096 0.042" size="0.015 0.020 0.012" solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" group="0" />
               </body>
 
             </body>

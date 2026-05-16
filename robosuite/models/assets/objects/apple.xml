@@ -7,6 +7,7 @@
   <worldbody>
     <body>
       <body name="object">
+        <freejoint name="apple_joint0"/>
         <geom pos="0.00000 0.00000 0.00000" mesh="apple_mesh" type="mesh" solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="3.0 0.3 0.1" material="apple" group="0" condim="4" />
       </body>
       <site rgba="0 0 0 0" size="0.005" pos="0.00000 0.00000 -0.08000" name="bottom_site" />

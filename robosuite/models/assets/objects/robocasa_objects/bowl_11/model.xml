@@ -31,7 +31,7 @@
   <worldbody>
     <body>
       <body name="object">
-        <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="model_normalized_0_vis" conaffinity="0" contype="0" group="1" material="default.002"/>
+        <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="3.95 0.3 0.1" type="mesh" mesh="model_normalized_0_vis" conaffinity="0" contype="0" group="1" material="default.002"/>
         <geom class="region" name="reg_bbox" type="box" pos="2.3040000000196226e-07 -6.401999999994243e-07 0.0" size="0.05999877839999997 0.05999935979999997 0.03087954239999998"/>
         <geom mesh="bowl_collision_mesh_0" type="mesh" class="collision"/>
         <geom mesh="bowl_collision_mesh_1" type="mesh" class="collision"/>
