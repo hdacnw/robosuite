@@ -1,11 +1,40 @@
 <mujoco model="bowl">
   <asset>
     <mesh file="meshes/bowl.stl" name="bowl_mesh" scale="0.0004 0.0004 0.0004"/>
+    <!-- Convex wall segment: original 6/13/22 mm half-extents, 2 mm edge bevel.
+         Each vertex retains one full extent and insets the other two by 2 mm. -->
+    <mesh name="bowl_wall_bevel_2mm" vertex="
+      -0.006 -0.011 -0.020
+      -0.006 -0.011 0.020
+      -0.006 0.011 -0.020
+      -0.006 0.011 0.020
+      0.006 -0.011 -0.020
+      0.006 -0.011 0.020
+      0.006 0.011 -0.020
+      0.006 0.011 0.020
+      -0.004 -0.013 -0.020
+      -0.004 -0.013 0.020
+      -0.004 0.013 -0.020
+      -0.004 0.013 0.020
+      0.004 -0.013 -0.020
+      0.004 -0.013 0.020
+      0.004 0.013 -0.020
+      0.004 0.013 0.020
+      -0.004 -0.011 -0.022
+      -0.004 -0.011 0.022
+      -0.004 0.011 -0.022
+      -0.004 0.011 0.022
+      0.004 -0.011 -0.022
+      0.004 -0.011 0.022
+      0.004 0.011 -0.022
+      0.004 0.011 0.022"/>
     <material name="bowl_mat" rgba="1.0 0.6 0.7 1.0" specular="0.3" shininess="0.4"/>
   </asset>
   <worldbody>
     <body>
       <body name="object">
+        <!-- Preserve the original box-wall bowl mass and inertia. -->
+        <inertial mass="0.18534798940020264" pos="0 0 0.01988706745688916" quat="-0.03077009816853926 0.6868510070214288 0.033398018331998736 0.725378154884642" diaginertia="0.0003565070769552238 0.00020901652533358376 0.00020528750130637422"/>
 
         <!-- Visual mesh only — convex hull disabled for collision -->
         <geom mesh="bowl_mesh" type="mesh" material="bowl_mat" group="1"
@@ -16,31 +45,31 @@
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
               friction="2.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
 
-        <!-- Collision: 8 wall segments centred at r=0.045, z=0.022, tilted outward 30°.
+        <!-- Collision: 8 beveled wall segments; original centres and orientations retained.
              euler="0 tilt θ" in MuJoCo extrinsic-XYZ convention: first Ry(tilt),
              then Rz(θ) — keeps outward tilt pointing radially at each angle. -->
-        <geom type="box" size="0.006 0.013 0.022" pos=" 0.0450  0.0000 0.022" euler="0 35   0"
+        <geom type="mesh" mesh="bowl_wall_bevel_2mm" pos=" 0.0450  0.0000 0.022" euler="0 35   0"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
               friction="2.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
-        <geom type="box" size="0.006 0.013 0.022" pos=" 0.0318  0.0318 0.022" euler="0 35  45"
+        <geom type="mesh" mesh="bowl_wall_bevel_2mm" pos=" 0.0318  0.0318 0.022" euler="0 35  45"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
               friction="2.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
-        <geom type="box" size="0.006 0.013 0.022" pos=" 0.0000  0.0450 0.022" euler="0 35  90"
+        <geom type="mesh" mesh="bowl_wall_bevel_2mm" pos=" 0.0000  0.0450 0.022" euler="0 35  90"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
               friction="2.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
-        <geom type="box" size="0.006 0.013 0.022" pos="-0.0318  0.0318 0.022" euler="0 35 135"
+        <geom type="mesh" mesh="bowl_wall_bevel_2mm" pos="-0.0318  0.0318 0.022" euler="0 35 135"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
               friction="2.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
-        <geom type="box" size="0.006 0.013 0.022" pos="-0.0450  0.0000 0.022" euler="0 35 180"
+        <geom type="mesh" mesh="bowl_wall_bevel_2mm" pos="-0.0450  0.0000 0.022" euler="0 35 180"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
               friction="2.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
-        <geom type="box" size="0.006 0.013 0.022" pos="-0.0318 -0.0318 0.022" euler="0 35 225"
+        <geom type="mesh" mesh="bowl_wall_bevel_2mm" pos="-0.0318 -0.0318 0.022" euler="0 35 225"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
               friction="2.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
-        <geom type="box" size="0.006 0.013 0.022" pos=" 0.0000 -0.0450 0.022" euler="0 35 270"
+        <geom type="mesh" mesh="bowl_wall_bevel_2mm" pos=" 0.0000 -0.0450 0.022" euler="0 35 270"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
               friction="2.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
-        <geom type="box" size="0.006 0.013 0.022" pos=" 0.0318 -0.0318 0.022" euler="0 35 315"
+        <geom type="mesh" mesh="bowl_wall_bevel_2mm" pos=" 0.0318 -0.0318 0.022" euler="0 35 315"
               solimp="0.998 0.998 0.001" solref="0.001 1" density="1500"
               friction="2.8 0.3 0.1" group="0" condim="4" rgba="0 0 0 0"/>
 
